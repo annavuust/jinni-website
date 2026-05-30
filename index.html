@@ -233,59 +233,138 @@
 
     .success-box p { font-size: 14px; color: var(--ink-soft); }
 
-    /* ── Hero visual ─── */
+    /* ── Hero visual (desktop only) ─── */
     .hero-visual { display: none; }
 
-    .outfit-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
+    /* ── iPhone mockup ─── */
+    .iphone-wrap {
+      width: 240px;
+      height: 490px;
+      background: #1A1A1A;
+      border-radius: 46px;
+      box-shadow: 0 48px 80px rgba(0,0,0,0.28), inset 0 0 0 1.5px rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      animation: floatPhone 6s ease-in-out infinite;
+    }
+
+    @keyframes floatPhone {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .iphone-island {
       position: absolute;
-      box-shadow: 0 8px 32px rgba(26,23,18,0.08);
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 76px;
+      height: 24px;
+      background: #1A1A1A;
+      border-radius: 20px;
+      z-index: 10;
     }
 
-    .oc-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 14px;
-    }
-
-    .oc-items {
+    .iphone-screen {
+      position: absolute;
+      inset: 3px;
+      border-radius: 43px;
+      background: var(--accent);
       display: flex;
-      gap: 8px;
-      align-items: flex-end;
-      margin-bottom: 14px;
-      height: 72px;
+      flex-direction: column;
+      overflow: hidden;
     }
 
-    .oc-item { flex-shrink: 0; }
+    .iphone-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px 0;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.02em;
+    }
 
-    .oc-tag {
-      display: inline-block;
-      font-size: 12px;
+    .iphone-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 28px;
+      text-align: center;
+    }
+
+    .iphone-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
       font-weight: 500;
-      color: var(--accent);
-      background: var(--accent-light);
+      color: #fff;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .iphone-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.4;
+      margin-bottom: 28px;
+    }
+
+    .iphone-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.25);
+      margin-bottom: 28px;
+    }
+
+    .iphone-prompt {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 12px 16px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .iphone-prompt-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+    }
+
+    .iphone-cursor {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .iphone-bottom {
+      padding: 0 0 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .iphone-home {
+      width: 100px;
+      height: 4px;
+      background: rgba(255,255,255,0.3);
       border-radius: 100px;
-      padding: 3px 10px;
-    }
-
-    .outfit-card--1 { top: 0; left: 0; width: 200px; z-index: 3; animation: floatA 6s ease-in-out infinite; }
-    .outfit-card--2 { top: 60px; right: 0; width: 200px; z-index: 2; animation: floatB 7s ease-in-out infinite 0.5s; }
-    .outfit-card--3 { bottom: 60px; left: 40px; width: 210px; z-index: 1; animation: floatA 8s ease-in-out infinite 1s; }
-
-    @keyframes floatA {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-10px); }
-    }
-
-    @keyframes floatB {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(10px); }
     }
 
     /* ── Spots bar ─── */
@@ -478,16 +557,6 @@
       pointer-events: none;
     }
 
-    .offer-card::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; right: 80px;
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      background: rgba(244,236,216,0.04);
-      pointer-events: none;
-    }
-
     .offer-eyebrow {
       font-size: 12px;
       font-weight: 500;
@@ -562,7 +631,6 @@
     }
 
     .btn-light:hover { opacity: 0.9; transform: translateY(-1px); }
-
     .offer-note { font-size: 13px; color: rgba(244,236,216,0.5); }
 
     /* ── Notify section ─── */
@@ -598,7 +666,6 @@
     }
 
     .notify-sub { font-size: 15px; color: var(--ink-soft); margin-bottom: 28px; }
-
     .notify-card .signup-form { max-width: 400px; }
 
     .btn-outline {
@@ -616,7 +683,6 @@
     }
 
     .btn-outline:hover { background: var(--accent); color: var(--bg); }
-
     .notify-success { margin: 0 auto; max-width: 400px; }
 
     /* ── Footer ─── */
@@ -645,7 +711,7 @@
       .hero {
         flex-direction: row;
         align-items: center;
-        gap: 60px;
+        gap: 80px;
         max-width: 1280px;
         padding: 80px 60px 100px;
       }
@@ -653,17 +719,16 @@
       .hero-content { flex: 1; }
 
       .hero-visual {
-        display: block;
-        flex: 0 0 420px;
-        height: 420px;
-        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 300px;
       }
 
       .spots-section { max-width: 1280px; padding: 0 60px; }
       .section       { max-width: 1280px; padding: 100px 60px; }
       .offer-outer   { max-width: 1280px; padding: 0 60px 100px; }
       .notify-outer  { max-width: 1280px; padding: 0 60px 100px; }
-
       footer { max-width: 1280px; margin: 0 auto; padding: 28px 60px; }
 
       .step-list {
@@ -754,34 +819,35 @@
       </div>
     </div>
 
-    <!-- Desktop visual -->
+    <!-- Desktop: iPhone mockup -->
     <div class="hero-visual" aria-hidden="true">
-      <div class="outfit-card outfit-card--1">
-        <div class="oc-label">Monday morning</div>
-        <div class="oc-items">
-          <div class="oc-item" style="background:#2C4A3A; width:52px; height:64px; border-radius:6px 6px 2px 2px;"></div>
-          <div class="oc-item" style="background:#6B6055; width:52px; height:52px; border-radius:4px;"></div>
-          <div class="oc-item" style="background:#1A1712; width:32px; height:44px; border-radius:3px;"></div>
+      <div class="iphone-wrap">
+        <div class="iphone-island"></div>
+        <div class="iphone-screen">
+          <div class="iphone-status">
+            <span>9:41</span>
+            <span style="display:flex;gap:5px;align-items:center;">
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="none"><rect x="0" y="2.5" width="3" height="8.5" rx="1" fill="white" opacity="0.4"/><rect x="4.5" y="1.5" width="3" height="9.5" rx="1" fill="white" opacity="0.6"/><rect x="9" y="0" width="3" height="11" rx="1" fill="white"/><rect x="13.5" y="1" width="2" height="7" rx="0.5" fill="white" opacity="0.3"/></svg>
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="17" height="8" rx="2" fill="white"/><path d="M23 4.5V7.5C23.8 7.2 24.5 6.5 24.5 6C24.5 5.5 23.8 4.8 23 4.5Z" fill="white" opacity="0.4"/></svg>
+            </span>
+          </div>
+
+          <div class="iphone-content">
+            <div class="iphone-logo">Clozet</div>
+            <div class="iphone-tagline">Never wonder<br>what to wear today</div>
+            <div class="iphone-divider"></div>
+            <div class="iphone-prompt">
+              <div class="iphone-prompt-label">What do you need today?</div>
+              <div style="font-size:14px; color:rgba(255,255,255,0.8); margin-top:2px;">
+                <span class="iphone-cursor">|</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="iphone-bottom">
+            <div class="iphone-home"></div>
+          </div>
         </div>
-        <div class="oc-tag">Work meeting</div>
-      </div>
-      <div class="outfit-card outfit-card--2">
-        <div class="oc-label">Friday night</div>
-        <div class="oc-items">
-          <div class="oc-item" style="background:#A09585; width:48px; height:60px; border-radius:6px 6px 2px 2px;"></div>
-          <div class="oc-item" style="background:#1A1712; width:44px; height:68px; border-radius:2px 2px 6px 6px;"></div>
-          <div class="oc-item" style="background:#D8CEBC; width:28px; height:28px; border-radius:50%;"></div>
-        </div>
-        <div class="oc-tag">Date night</div>
-      </div>
-      <div class="outfit-card outfit-card--3">
-        <div class="oc-label">Sunday casual</div>
-        <div class="oc-items">
-          <div class="oc-item" style="background:#EAF0EC; border:1.5px solid #2C4A3A; width:56px; height:56px; border-radius:6px;"></div>
-          <div class="oc-item" style="background:#6B6055; width:52px; height:48px; border-radius:2px 2px 6px 6px;"></div>
-          <div class="oc-item" style="background:#A09585; width:36px; height:36px; border-radius:4px;"></div>
-        </div>
-        <div class="oc-tag">Relaxed weekend</div>
       </div>
     </div>
   </section>
@@ -879,7 +945,7 @@
     </div>
   </div>
 
-  <!-- ── Notify me section ─── -->
+  <!-- ── Notify me ─── -->
   <div class="notify-outer reveal">
     <div class="notify-card">
       <p class="notify-eyebrow">Not ready to commit yet?</p>
@@ -890,8 +956,7 @@
         <button type="submit" class="btn-outline" id="notifyBtn">Notify me</button>
       </form>
       <div class="success-box notify-success" id="notifySuccess">
-        <div class="check">✓</div>
-        <h3>Got it.</h3>
+        <div class="check-row"><div class="check">✓</div><h3>Got it.</h3></div>
         <p>We'll send you one email when Clozet launches. Nothing else.</p>
       </div>
     </div>
@@ -912,7 +977,7 @@
     const SUBMIT_ENDPOINT = `${SUPABASE_URL}/rest/v1/waitlist`;
     const SUPABASE_KEY    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFkeXdxemR6bmF0d3VvanF3aGZ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MTkwMzYsImV4cCI6MjA5NDA5NTAzNn0.KSIWg-AGEfgVWKqtgwwyDn5mHgZd4y0bmx6dzKTV7pg";
     const TOTAL_SPOTS     = 200;
-    let   CLAIMED_SPOTS   = 0;  // opdateres fra Supabase ved load
+    let   CLAIMED_SPOTS   = 0;
     // ────────────────────────────────────────────────
 
     // Cycling headline
@@ -937,10 +1002,10 @@
 
     setInterval(cycleNext, 3000);
 
-    // Fetch real count via RPC (no SELECT RLS needed, no emails exposed)
+    // Fetch real count via RPC
     async function fetchAndUpdateSpots() {
       try {
-        const res  = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_waitlist_count`, {
+        const res   = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_waitlist_count`, {
           method: 'POST',
           headers: {
             'apikey': SUPABASE_KEY,
@@ -951,7 +1016,7 @@
         });
         const count = await res.json();
         if (typeof count === 'number') CLAIMED_SPOTS = count;
-      } catch { /* use default 0 on error */ }
+      } catch {}
 
       const left = TOTAL_SPOTS - CLAIMED_SPOTS;
       document.getElementById('navSpots').textContent   = CLAIMED_SPOTS > 0
@@ -962,15 +1027,11 @@
       document.getElementById('offerSpots').textContent = `${left} spots`;
 
       setTimeout(() => {
-        document.getElementById('progressFill').style.width =
-          (CLAIMED_SPOTS / TOTAL_SPOTS * 100) + '%';
+        document.getElementById('progressFill').style.width = (CLAIMED_SPOTS / TOTAL_SPOTS * 100) + '%';
       }, 400);
     }
 
-    window.addEventListener('load', () => {
-      fetchAndUpdateSpots();
-      // Note: localStorage used only to block duplicate POSTs, not to persist UI state
-    });
+    window.addEventListener('load', fetchAndUpdateSpots);
 
     // Scroll reveals
     const observer = new IntersectionObserver(entries => {
@@ -1014,14 +1075,11 @@
         });
 
         if (res.status === 201) {
-          // New signup
           localStorage.setItem('clozet_signup', email);
           showSuccess(false);
         } else if (res.status === 409) {
-          // Already signed up
           showSuccess(true);
         } else {
-          // Unknown error — still show success to not frustrate user
           showSuccess(false);
         }
       } catch {
@@ -1039,7 +1097,6 @@
       } else {
         document.getElementById('successTitle').textContent = "You're in!";
         document.getElementById('successMsg').textContent   = "We'll email you the moment Clozet launches — with your early bird price locked in.";
-        // Update spot counters optimistically
         const newClaimed = CLAIMED_SPOTS + 1;
         const left = TOTAL_SPOTS - newClaimed;
         document.getElementById('navSpots').textContent    = `${newClaimed} of ${TOTAL_SPOTS} spots claimed`;
@@ -1055,16 +1112,16 @@
       e.preventDefault();
       const email = document.getElementById('notifyInput').value.trim();
 
-      // Block duplicate submission from same browser
       if (localStorage.getItem('clozet_notify')) {
         document.getElementById('notifyForm').style.display    = 'none';
         document.getElementById('notifySuccess').style.display = 'block';
         return;
       }
 
-      const btn   = document.getElementById('notifyBtn');
+      const btn = document.getElementById('notifyBtn');
       btn.disabled = true;
       btn.textContent = '…';
+
       try {
         if (SUBMIT_ENDPOINT) {
           await fetch(SUBMIT_ENDPOINT, {
@@ -1079,6 +1136,7 @@
         }
         localStorage.setItem('clozet_notify', email);
       } catch {}
+
       document.getElementById('notifyForm').style.display    = 'none';
       document.getElementById('notifySuccess').style.display = 'block';
     }
